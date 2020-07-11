@@ -56,7 +56,6 @@ public class LineService {
         Line line = lineRepository.findById(lineId).orElseThrow(RuntimeException::new);
         lineStationService.deleteLineStationByLineIdAndStationId(lineId, stationId);
         line.removeLineStationById(stationId);
-        lineRepository.save(line);
     }
 
     public LineDetailResponse retrieveLine(Long id) {

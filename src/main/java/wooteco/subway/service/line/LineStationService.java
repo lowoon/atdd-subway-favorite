@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import wooteco.subway.domain.line.Line;
 import wooteco.subway.domain.line.LineRepository;
@@ -49,12 +48,10 @@ public class LineStationService {
         return WholeSubwayResponse.of(lineDetailResponses);
     }
 
-    @Transactional
     public void deleteLineStationByLineIdAndStationId(Long lindId, Long stationId) {
         lineStationRepository.deleteByLineIdAndStationId(lindId, stationId);
     }
 
-    @Transactional
     public void deleteAllByStationId(Long stationId) {
         lineStationRepository.deleteAllByStationId(stationId);
     }
